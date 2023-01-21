@@ -7,6 +7,7 @@
       }
       case 'copy-command': {
         const selection = document.getSelection();
+        console.log('selection here', selection);
         copyToClipboard(selection);
         break;
       }
