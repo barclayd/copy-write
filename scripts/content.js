@@ -1,8 +1,4 @@
 (() => {
-  window.addEventListener('DOMContentLoaded', () => {
-    console.log('Dom is ready for work!');
-  });
-
   chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
     switch (message.type) {
       case 'copy': {

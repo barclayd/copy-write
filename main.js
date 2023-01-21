@@ -13,19 +13,25 @@ chrome.tabs.onUpdated.addListener((tabId, tab) => {
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  console.log('I was clicked!', info);
+  if (!info.mediaType) {
+    chrome.tabs.sendMessage(tab.id, {
+      type: 'copy',
+      content: info.selectionText
+    });
+    return;
+  }
   switch (info.mediaType) {
-    case 'image': {
-      chrome.tabs.sendMessage(tab.id, {
-        type: 'copy',
-        content: info.srcUrl
-      });
-    }
+    // case 'image': {
+    //   chrome.tabs.sendMessage(tab.id, {
+    //     type: 'copy',
+    //     content: info.srcUrl
+    //   });
+    //   break;
+    // }
   }
 });
 
 chrome.commands.onCommand.addListener(function (command) {
-  console.log('command', command);
   switch (command) {
     case 'copy': {
       chrome.tabs.sendMessage(contentId, {
