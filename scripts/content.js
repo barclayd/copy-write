@@ -13,9 +13,19 @@
     }
     sendResponse('received');
   });
+
+  document.addEventListener('copy', () => {
+    console.log('I copied');
+  });
 })();
 
+document.addEventListener('DOMContentLoaded', () => {
+  const iframes = document.querySelectorAll('iframe');
+  iframes.forEach((iframe, index) => {
+    iframes[index].parentNode.removeChild(iframe);
+  });
+});
+
 const copyToClipboard = (content) => {
-  navigator.clipboard
-    .writeText(content)
+  navigator.clipboard.writeText(content);
 };
