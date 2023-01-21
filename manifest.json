@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "CopyWrite",
+  "description": "Copy text and images with freedom, overcoming restrictions put by a site from copying content",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "logo.png"
+  },
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "permissions": ["contextMenus", "tabs", "scripting"],
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://teams.microsoft.com.mcas.ms/*",
+        "https://w3schools.com/*",
+        "https://*/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "main.js",
+    "type": "module"
+  },
+  "commands": {
+    "copy": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "MacCtrl+C"
+      },
+      "description": "Copy selected content"
+    }
+  }
+}
