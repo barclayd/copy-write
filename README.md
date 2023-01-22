@@ -1,6 +1,6 @@
 # CopyWrite
 
-_A delighted Chrome extension to allow users to copy from sites with freedom_
+_A delightful Chrome extension to allow users to copy from sites with freedom_
 
 Tired of websites preventing you from copying text, images or, even worse, your own content?
 Well, those days are over with the help of [CopyWrite](https://github.com/barclayd/copy-write)!
