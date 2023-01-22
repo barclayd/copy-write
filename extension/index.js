@@ -2,12 +2,19 @@ const queryOptions = { active: true, lastFocusedWindow: true };
 
 const updateIsActiveStyling = () => {
   if (document.getElementById('is-active') === null) {
+    const statusSpan = document.createElement('span');
+    statusSpan.className = 'status-container';
+    const isActiveIconSpan = document.createElement('span');
+    isActiveIconSpan.id = 'is-active-logo';
+    isActiveIconSpan.className = 'is-active';
+    isActiveIconSpan.textContent = '✓ ';
     const isActiveSpan = document.createElement('span');
     isActiveSpan.id = 'is-active';
-    document.getElementById('active-status').append(isActiveSpan);
+    isActiveSpan.className = 'is-active';
+    statusSpan.append(isActiveIconSpan, isActiveSpan);
+    document.getElementById('active-status').append(statusSpan);
   }
-  document.getElementById('is-active').textContent = '✓ Active on this site';
-  document.getElementById('is-active').style.color = 'rgb(52,168,83)';
+  document.getElementById('is-active').textContent = 'Active on this site';
 };
 
 const updateHostnames = (tab) => {
@@ -30,7 +37,7 @@ const updateHostnames = (tab) => {
         const activateButton = document.createElement('button');
         activateButton.id = 'activate-button';
         activateButton.className = 'secondary-button';
-        activateButton.innerText = 'Activate for site';
+        activateButton.innerText = 'Activate on this site';
         activateButton.onclick = () => {
           if (tab.url.startsWith('http')) {
             const { hostname } = new URL(tab.url);
