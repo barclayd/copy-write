@@ -19,13 +19,6 @@
   });
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
-  const iframes = document.querySelectorAll('iframe');
-  iframes.forEach((iframe, index) => {
-    iframes[index].parentNode.removeChild(iframe);
-  });
-});
-
 const copyToClipboard = (content) => {
   navigator.clipboard.writeText(content);
 };

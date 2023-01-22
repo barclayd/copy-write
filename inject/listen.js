@@ -71,11 +71,6 @@ window.pointers.inject(`
   document.addEventListener('contextmenu', skip, true);
   document.addEventListener('mousedown', skip, true);
 
-  const iframes = document.querySelectorAll('iframe');
-  iframes.forEach((iframe, index) => {
-    iframes[index].parentNode.removeChild(iframe);
-  });
-
   window.pointers.run.add(() => {
     document.removeEventListener('dragstart', skip, true);
     document.removeEventListener('selectstart', skip, true);

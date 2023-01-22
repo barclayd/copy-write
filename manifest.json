@@ -18,7 +18,8 @@
     "activeTab",
     "scripting",
     "contextMenus",
-    "notifications"
+    "notifications",
+    "tabs"
   ],
   "content_scripts": [
     {
