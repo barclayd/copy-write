@@ -23,7 +23,8 @@ CopyWrite has a simple and intuitive to get you back to copying and pasting cont
    <img width="50%" alt="Activate extension screenshot" src="https://user-images.githubusercontent.com/120491964/213935926-070cf551-4b7f-4a2f-b8ca-1f984e78cda0.png" />
    </p>
 5. The page will automatically refresh, with the freedom restored of copying/pasting as you intended!
-6. You can view the Extension UI to verify if a site has been activated with `CopyWrite`
+6. You can view the Extension UI to verify if a site has been activated with CopyWrite
+
    <p align="center">
    <img width="50%" alt="Verify extension is active" src="https://user-images.githubusercontent.com/120491964/213936071-78185263-eb13-4a6b-b1d6-c1860c956289.png">
    </p>
