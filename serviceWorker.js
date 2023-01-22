@@ -217,7 +217,7 @@ const permission = () =>
   const callback = () => {
     chrome.contextMenus.create({
       id: 'add-to-whitelist',
-      title: 'Activate on this domain',
+      title: 'Activate on this site',
       contexts: ['action']
     });
   };
