@@ -1,8 +1,14 @@
-const permissions = {
-  origins: ['*://*/*']
-};
-
 const queryOptions = { active: true, lastFocusedWindow: true };
+
+const updateIsActiveStyling = () => {
+  if (document.getElementById('is-active') === null) {
+    const isActiveSpan = document.createElement('span');
+    isActiveSpan.id = 'is-active';
+    document.getElementById('active-status').append(isActiveSpan);
+  }
+  document.getElementById('is-active').textContent = '✓ Active on this site';
+  document.getElementById('is-active').style.color = 'rgb(52,168,83)';
+};
 
 const updateHostnames = (tab) => {
   chrome.storage.local.get(
@@ -16,13 +22,15 @@ const updateHostnames = (tab) => {
         ) !== undefined;
 
       if (isExtensionActiveForTab) {
-        document.getElementById('is-active').textContent =
-          '✓ Active on this site';
-        document.getElementById('is-active').style.color = 'rgb(52,168,83)';
+        updateIsActiveStyling();
       } else {
+        if (document.getElementById('activate-button') !== null) {
+          return;
+        }
         const activateButton = document.createElement('button');
         activateButton.id = 'activate-button';
-        activateButton.innerText = 'Activate for this site';
+        activateButton.className = 'secondary-button';
+        activateButton.innerText = 'Activate for site';
         activateButton.onclick = () => {
           if (tab.url.startsWith('http')) {
             const { hostname } = new URL(tab.url);
@@ -39,35 +47,14 @@ const updateHostnames = (tab) => {
               }
             );
 
-            chrome.permissions.contains(permissions, (granted) => {
-              if (granted) {
-                chrome.storage.local.set({
-                  monitor: true
-                });
-                chrome.tabs.reload(tab.id);
-                activateButton.remove();
-              } else {
-                chrome.permissions.request(
-                  {
-                    origins: ['*://*/*']
-                  },
-                  (granted) => {
-                    const lastError = chrome.runtime.lastError;
-
-                    if (lastError) {
-                      notify(lastError.message);
-                    }
-
-                    chrome.storage.local.set({
-                      monitor: granted
-                    });
-                  }
-                );
-              }
+            chrome.storage.local.set({
+              monitor: true
             });
+            chrome.tabs.reload(tab.id);
+            activateButton.remove();
           }
         };
-        document.getElementById('permissions').appendChild(activateButton);
+        document.getElementById('active-status').appendChild(activateButton);
       }
     }
   );
