@@ -6,7 +6,7 @@
   --text-color: #a3a2a2;
   --link-text-color: rgb(138, 180, 248);
   --button-secondary-text-color: var(--bg-color);
-  --button-secondary-background-color: #8ab4f8;
+  --button-secondary-background-color: rgb(26, 115, 232);
   --padding: 8px 16px;
 }
 
@@ -16,6 +16,7 @@
     --bg-color: #292a2d;
     --border-color: #4d5156;
     --button-text-color: rgb(138, 180, 248);
+    --button-secondary-background-color: #8ab4f8;
     --text-color: rgb(154, 160, 166);
   }
 }
@@ -24,6 +25,7 @@ body {
   background: var(--bg-color);
   font-family: Google Sans, Roboto, Helvetica, Arial, sans-serif;
   min-width: 175px;
+  max-height: 150px;
 }
 
 h1 {
@@ -47,7 +49,7 @@ h3 {
   margin: 8px 4px;
 }
 
-.active-status span {
+.active-status > .status-container {
   border: 1px solid var(--border-color);
   background: transparent;
   border-radius: 4px;
@@ -65,7 +67,7 @@ h3 {
   border-radius: 4px;
   border: 1px solid transparent;
   box-shadow: none;
-  padding: 4px 8px;
+  padding: var(--padding);
 }
 
 ul {
@@ -76,6 +78,26 @@ a {
   color: var(--link-text-color);
 }
 
-#is-active {
-  color: rgb(234, 67, 53);
+#is-active-logo {
+  font-size: 20px;
+}
+
+.is-active {
+  color: rgb(52, 168, 83);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.title-bar {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+}
+
+.title-bar img {
+  height: 30px;
+  width: 30px;
+  justify-self: center;
 }

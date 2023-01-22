@@ -7,26 +7,8 @@
 </head>
 
 <body>
-  Activate the extension on the following domains:
-  <textarea id="whitelist" rows="8" placeholder="Supported Formats:
-
-example.com
-www.example.com
-http://example.com
-*.example.com
-*://*.example.com/*
-" disabled></textarea>
-
-
-  <p class="table">
-    <input type="checkbox" id="hostaccess">
-    <label for="hostaccess">Allow the extension to use the run the CopyWrite script automatically</label>
-  </p>
-
-  <p>
-    <input type="button" id="save" value="Save Options"/>
-    <span id="toast"></span>
-  </p>
+  <label for="whitelist">The extension is active for the following hostnames:</label>
+  <textarea id="whitelist" rows="8"></textarea>
   <script type="text/javascript" src="index.js"></script>
 </body>
 </html>

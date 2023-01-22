@@ -9,7 +9,7 @@ const notify = (message) =>
     title: chrome.runtime.getManifest().name,
     message,
     type: 'basic',
-    iconUrl: 'images/icon-48.png'
+    iconUrl: '/images/icon-48.png'
   });
 
 const onClicked = (tabId, obj) =>
@@ -19,7 +19,7 @@ const onClicked = (tabId, obj) =>
         tabId,
         ...obj
       },
-      files: ['inject/core.js']
+      files: ['/inject/core.js']
     },
     () => {
       const lastError = chrome.runtime.lastError;
@@ -53,9 +53,9 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
       chrome.action.setIcon({
         tabId: sender.tab.id,
         path: {
-          16: 'images/icon-16.png',
-          32: 'images/icon-32.png',
-          48: 'images/icon-48.png'
+          16: '/images/icon-16.png',
+          32: '/images/icon-32.png',
+          48: '/images/icon-48.png'
         }
       });
     }
@@ -65,7 +65,7 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
           tabId: sender.tab.id,
           frameIds: [sender.frameId]
         },
-        files: ['inject/' + file]
+        files: ['/inject/' + file]
       });
     }
   } else if (request.method === 'release') {
@@ -73,9 +73,9 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
       chrome.action.setIcon({
         tabId: sender.tab.id,
         path: {
-          16: 'images/icon-16.png',
-          32: 'images/icon-32.png',
-          48: 'images/icon-48.png'
+          16: '/images/icon-16.png',
+          32: '/images/icon-32.png',
+          48: '/images/icon-48.png'
         }
       });
     }
@@ -148,7 +148,7 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
                   matchOriginAsFallback: true,
                   runAt: 'document_start',
                   id: 'monitor-' + Math.random(),
-                  js: ['/monitor.js'],
+                  js: ['/extension/monitor.js'],
                   matches: [m]
                 }
               ])

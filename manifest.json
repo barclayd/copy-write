@@ -4,8 +4,8 @@
   "description": "Copy text and images with freedom, allowing users to overcome restrictions originally enforced by a site",
   "version": "0.1.0",
   "action": {
-    "default_popup": "index.html",
-    "default_icon": "logo.png"
+    "default_popup": "extension/index.html",
+    "default_icon": "images/logo.png"
   },
   "icons": {
     "16": "images/icon-16.png",
@@ -23,7 +23,7 @@
   ],
   "optional_host_permissions": ["*://*/*"],
   "background": {
-    "service_worker": "serviceWorker.js",
+    "service_worker": "extension/serviceWorker.js",
     "type": "module"
   },
   "options_ui": {
