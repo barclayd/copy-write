@@ -21,12 +21,6 @@
     "notifications",
     "tabs"
   ],
-  "content_scripts": [
-    {
-      "js": ["scripts/content.js"],
-      "matches": ["https://*/*"]
-    }
-  ],
   "optional_host_permissions": ["*://*/*"],
   "background": {
     "service_worker": "serviceWorker.js",
@@ -37,12 +31,11 @@
     "open_in_tab": false
   },
   "commands": {
-    "copy": {
+    "_execute_action": {
       "suggested_key": {
-        "default": "Ctrl+Shift+Y",
+        "windows": "Ctrl+Shift+C",
         "mac": "MacCtrl+C"
-      },
-      "description": "Copy selected content"
+      }
     }
   }
 }
