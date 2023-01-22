@@ -6,7 +6,7 @@
   --text-color: #a3a2a2;
   --link-text-color: rgb(138, 180, 248);
   --button-secondary-text-color: var(--bg-color);
-  --button-secondary-background-color: rgb(26,115,232);
+  --button-secondary-background-color: rgb(26, 115, 232);
   --padding: 8px 16px;
 }
 
@@ -83,7 +83,7 @@ a {
 }
 
 .is-active {
-  color: rgb(52,168,83);
+  color: rgb(52, 168, 83);
   font-weight: 700;
   font-size: 13px;
 }
